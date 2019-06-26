@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.amplitude.api.Amplitude;
+import com.amplitude.api.Revenue;
 
 public class AmplitudePlugin extends Godot.SingletonBase {
     //variable
@@ -22,9 +23,12 @@ public class AmplitudePlugin extends Godot.SingletonBase {
     public AmplitudePlugin(Activity p_activity) {
         //The registration of this and its functions
         registerClass("Amplitude", new String[]{
-                "init", "setUserId",
-                "logEvent", "setUserProperties", "clearUserProperties",
-                "uploadEvents", "logRevenue"
+                "init",
+                "setUserId",
+                "logEvent",
+                "setUserProperties",
+                "clearUserProperties",
+                "logRevenue"
         });
 
         activity = p_activity;
@@ -61,12 +65,10 @@ public class AmplitudePlugin extends Godot.SingletonBase {
         Amplitude.getInstance().clearUserProperties();
     }
     
-    public void uploadEvents() {
-        Amplitude.getInstance().uploadEvents();
-    }
-
     public void logRevenue(final String productId, int quantity, double price) {
-        Amplitude.getInstance().logRevenue(productId, quantity, price);
+        //Amplitude.getInstance().logRevenue(productId, quantity, price);
+        Revenue revenue = new Revenue().setProductId(productId).setPrice(price).setQuantity(quantity);
+        Amplitude.getInstance().logRevenueV2(revenue);
     }
 
     private JSONObject jsonFromDictionary(final Dictionary dict) {
