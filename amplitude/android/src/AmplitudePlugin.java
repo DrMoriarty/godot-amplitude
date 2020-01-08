@@ -65,10 +65,10 @@ public class AmplitudePlugin extends Godot.SingletonBase {
         Amplitude.getInstance().clearUserProperties();
     }
     
-    public void logRevenue(final String productId, int quantity, float price) {
+    public void logRevenue(final String productId, int quantity, float price, final String receipt, final String signature) {
         //Log.i(TAG, "Revenue: " + productId + " " + Integer.toString(quantity) + " " + Float.toString(price));
         //Amplitude.getInstance().logRevenue(productId, quantity, price);
-        Revenue revenue = new Revenue().setProductId(productId).setPrice(price).setQuantity(quantity);
+        Revenue revenue = new Revenue().setProductId(productId).setPrice(price).setQuantity(quantity).setReceipt(receipt, signature);
         Amplitude.getInstance().logRevenueV2(revenue);
     }
 

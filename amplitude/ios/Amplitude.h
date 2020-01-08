@@ -25,7 +25,7 @@ public:
     void setUserProperties(const Dictionary& params);
     void clearUserProperties();
     void uploadEvents();
-    void logRevenue(const String& product, int quantity, double price);
+    void logRevenue(const String& product, int quantity, double price, const String& receipt, const String& signature /* not used*/);
 };
 
 #endif /* Amplitude_h */

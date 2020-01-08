@@ -90,11 +90,13 @@ void GodotAmplitude::clearUserProperties()
     [[Amplitude instance] clearUserProperties];
 }
 
-void GodotAmplitude::logRevenue(const String& product, int quantity, double price)
+void GodotAmplitude::logRevenue(const String& product, int quantity, double price, const String& receipt, const String& signature /* not used*/)
 {
     NSString *pid = [NSString stringWithUTF8String:product.utf8().get_data()];
+    NSString *rec = [NSString stringWithUTF8String:receipt.utf8().get_data()];
     AMPRevenue *revenue = [[[AMPRevenue revenue] setProductIdentifier:pid] setQuantity:quantity];
     [revenue setPrice:[NSNumber numberWithDouble:price]];
+    [revenue setReceipt:[[NSData alloc] initWithBase64EncodedString:rec options:0]];
     [[Amplitude instance] logRevenueV2:revenue];
 }
 
