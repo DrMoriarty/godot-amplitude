@@ -1,0 +1,11 @@
+[config]
+
+name="Amplitude"
+binary_type="remote"
+binary="ru.mobilap.godot:godot-amplitude:+"
+
+[dependencies]
+
+local=[]
+remote=[]
+custom_maven_repos=["https://dl.bintray.com/mobilap/maven/"]
