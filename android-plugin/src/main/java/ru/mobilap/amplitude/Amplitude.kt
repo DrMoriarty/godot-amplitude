@@ -53,7 +53,7 @@ class Amplitude(godot:Godot):GodotPlugin(godot) {
         Log.i(TAG, "Amplitude module started")
     }
 
-    override fun onMainCreateView(activity:Activity):View? {
+    override fun onMainCreate(activity:Activity):View? {
         return null
     }
 
