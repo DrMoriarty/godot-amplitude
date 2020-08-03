@@ -1,0 +1,16 @@
+[general]
+
+singleton=true
+load_once=true
+symbol_prefix="amplitude_"
+reloadable=false
+
+[entry]
+
+iOS.armv7="res://addons/bin/amplitude-godot.xcframework"
+iOS.arm64="res://addons/bin/amplitude-godot.xcframework"
+
+[dependencies]
+
+iOS.armv7=[  ]
+iOS.arm64=[  ]
