@@ -22,7 +22,6 @@ class Amplitude(godot:Godot):GodotPlugin(godot) {
         val TAG = Amplitude::class.java.simpleName
     }
 
-    private val activity:Godot
     private val sdk:AmplitudeClient
 
     override fun getPluginName():String {
@@ -48,7 +47,6 @@ class Amplitude(godot:Godot):GodotPlugin(godot) {
      */
 
     init {
-        activity = godot
         sdk = AMP.getInstance()
         Log.i(TAG, "Amplitude module started")
     }
@@ -59,11 +57,11 @@ class Amplitude(godot:Godot):GodotPlugin(godot) {
 
     fun init(apiKey:String, userId:String) {
         if (userId != null && userId.length > 0) {
-            sdk.initialize(activity, apiKey, userId)
+            sdk.initialize(getActivity(), apiKey, userId)
         } else {
-            sdk.initialize(activity, apiKey)
+            sdk.initialize(getActivity(), apiKey)
         }
-        sdk.enableForegroundTracking(activity.getApplication())
+        sdk.enableForegroundTracking(getActivity()?.getApplication())
         sdk.enableLocationListening()
         Log.i(TAG, "Amplitude module inited")
     }
