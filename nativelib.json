@@ -1,0 +1,34 @@
+{
+  "name": "amplitude",
+  "description": "Amplitude analytics plugin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "url": "https://github.com/DrMoriarty/godot-amplitude",
+  "variables": {
+    "Amplitude/API_KEY": {
+      "info": "Set your Amplitude API Key here"
+    }
+  },
+  "files": {
+    "scripts": "scripts"
+  },
+  "autoload": {
+    "amplitude": "*res://scripts/amplitude.gd"
+  },
+  "platform_ios": {
+    "dependencies": [
+    ],
+    "files": {
+      "ios-framework/build/amplitude.gdnlib": "addons/amplitude-ios/",
+      "ios-framework/build/amplitude.gdns": "addons/amplitude-ios/",
+      "ios-framework/build/.gitignore": "addons/amplitude-ios/",
+      "ios-framework/build/amplitude-godot.xcframework": "addons/amplitude-ios/amplitude-godot.xcframework"
+    }
+  },
+  "platform_android": {
+    "files": {
+      "android-plugin/Amplitude.gdap": "android/plugins/",
+      "android-plugin/build/outputs/aar/Amplitude.release.aar": "android/plugins/"
+    }
+  }
+}
