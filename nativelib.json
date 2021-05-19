@@ -1,9 +1,17 @@
 {
   "name": "amplitude",
+  "display_name": "Amplitude",
   "description": "Amplitude analytics plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "url": "https://github.com/DrMoriarty/godot-amplitude",
+  "godot_version": "3.3.0",
+  "category": "misc",
+  "author": {
+    "name": "DrMoriarty",
+    "url": "https://github.com/DrMoriarty",
+    "donate": "https://ko-fi.com/drmoriarty"
+  },
   "variables": {
     "Amplitude/API_KEY": {
       "info": "Set your Amplitude API Key here"
